@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import PieChart from './components/pieChart.js';
+import { weeklyData, monthlyData, allTimeData } from './data/data.js';
+import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Attendance Charts</h1>
+      <div className="chart-container">
+        <div className="chart">
+          <PieChart data={weeklyData} title="Weekly Attendance" />
+        </div>
+        <div className="chart">
+          <PieChart data={monthlyData} title="Monthly Attendance" />
+        </div>
+        <div className="chart">
+          <PieChart data={allTimeData} title="All-Time Attendance" />
+        </div>
+      </div>
     </div>
   );
 }
